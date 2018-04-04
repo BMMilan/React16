@@ -1,5 +1,6 @@
 import React from 'react';
 import './Cockpit.css'
+import Aux from '../../hoc/Aux';
 
 const cockpit = (props) => {
     const style = {
@@ -16,10 +17,10 @@ const cockpit = (props) => {
     };
 
     let classes = [];
-    if (props.persons.length <= 1){
+    if (props.persons.length <= 3){
         classes.push('red');
     }
-    if (props.persons.length <= 0){
+    if (props.persons.length <= 2){
         classes.push('bold');
     }
     if(props.showPersons){
@@ -27,13 +28,13 @@ const cockpit = (props) => {
     }
 
       return(
-          <div>
-              <h1>React</h1>
+          <Aux>
+              <h1>{props.appTitle}</h1>
               <p className={classes.join(' ')}>Application</p>
               <button
                   style={style}
                   onClick={props.clicked}>Toggle Persons</button>
-          </div>
+          </Aux>
       );
 };
 
